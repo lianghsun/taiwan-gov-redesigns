@@ -1,0 +1,60 @@
+{
+  "id": "uniform-invoice-winners",
+  "org": "opendata",
+  "kind": "structured",
+  "title": "統一發票中獎號碼歷年清單",
+  "summary": "財政部公布之歷年期別統一發票中獎號碼，含特別獎、特獎、頭獎、增開六獎與雲端發票專屬獎。",
+  "publisher": "財政部",
+  "license": "政府資料開放授權條款 1.0 版",
+  "tags": ["稅務", "彩券", "民生"],
+  "upstreamUrl": "https://data.gov.tw/dataset/8350",
+  "files": [
+    { "path": "data.jsonl", "label": "data.jsonl", "format": "jsonl" },
+    { "path": "README.md", "label": "README.md", "format": "md" }
+  ],
+  "schema": [
+    { "name": "year", "type": "integer", "description": "民國年" },
+    { "name": "period", "type": "string", "description": "期別：例如 09-10、11-12（雙月期）" },
+    { "name": "special", "type": "string", "description": "特別獎號碼（8 碼）" },
+    { "name": "grand", "type": "string", "description": "特獎號碼（8 碼）" },
+    { "name": "first", "type": "string", "description": "頭獎號碼，逗號分隔多組" },
+    { "name": "extra6th", "type": "string", "description": "增開六獎號碼，逗號分隔多組" },
+    { "name": "cloud", "type": "string", "description": "雲端發票專屬獎（4 碼）逗號分隔多組" }
+  ],
+  "examples": [
+    {
+      "title": "用 Node.js 對發票",
+      "language": "javascript",
+      "path": "examples/check_invoice.mjs",
+      "description": "輸入年期與發票號碼，立即比對中獎結果。"
+    }
+  ],
+  "updatedAt": "2026-04-25",
+  "history": [
+    {
+      "sha": "3d1f9a2",
+      "date": "2026-04-25",
+      "author": "opendata-bot",
+      "message": "新增 115 年 03-04 期中獎號碼",
+      "files": ["data.jsonl"],
+      "stats": { "added": 1, "removed": 0 }
+    },
+    {
+      "sha": "c8b504e",
+      "date": "2026-03-01",
+      "author": "林雅婷",
+      "message": "新增 cloud（雲端發票專屬獎）欄位",
+      "body": "對齊 113 年起財政部公告之雲端發票四碼專屬獎，所有歷史期別補上對應號碼。",
+      "files": ["data.jsonl", "README.md"],
+      "stats": { "added": 12, "removed": 12, "schemaChanged": true }
+    },
+    {
+      "sha": "1e9d72f",
+      "date": "2025-12-10",
+      "author": "opendata-bot",
+      "message": "初版：113–114 年中獎號碼",
+      "files": ["data.jsonl", "README.md"],
+      "stats": { "added": 12, "removed": 0 }
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "gov-calendar-2026",
+  "org": "opendata",
+  "kind": "structured",
+  "title": "中華民國 115 年（2026）政府行政機關辦公日曆表",
+  "summary": "民國 115 年（西元 2026 年）行政院人事行政總處公告之政府機關辦公日曆，含一般辦公日、休假日、補班日與紀念日。",
+  "publisher": "行政院人事行政總處",
+  "license": "政府資料開放授權條款 1.0 版",
+  "tags": ["行事曆", "假日", "公務"],
+  "upstreamUrl": "https://data.gov.tw/dataset/14718",
+  "files": [
+    { "path": "data.json", "label": "data.json", "format": "json" },
+    { "path": "README.md", "label": "README.md", "format": "md" }
+  ],
+  "schema": [
+    { "name": "date", "type": "date", "description": "日期 (YYYY-MM-DD)" },
+    { "name": "weekday", "type": "string", "description": "星期 (一~日)" },
+    { "name": "isHoliday", "type": "boolean", "description": "是否為休息日 (true=放假)" },
+    { "name": "description", "type": "string", "description": "備註，例如「開國紀念日」「補假」「補行上班」" }
+  ],
+  "examples": [
+    {
+      "title": "用 Python 找出今年所有連假",
+      "language": "python",
+      "path": "examples/find_long_weekends.py",
+      "description": "讀取 data.json 並輸出所有連續 3 天以上的休假區間。"
+    }
+  ],
+  "updatedAt": "2026-01-15",
+  "history": [
+    {
+      "sha": "e8a4c12",
+      "date": "2026-01-15",
+      "author": "林雅婷",
+      "message": "補上 2026/11/21 颱風假補行上班",
+      "body": "依人事行政總處公告，因 11/20 共伴效應停班停課，調整 11/21 為補行上班日。",
+      "files": ["data.json"],
+      "stats": { "added": 1, "removed": 0 }
+    },
+    {
+      "sha": "7f3b201",
+      "date": "2025-09-08",
+      "author": "opendata-bot",
+      "message": "isHoliday 由 \"0\"/\"2\" 字串改為 boolean",
+      "body": "原始 CSV 以字串混合表示放假狀態（2=國定假日、0=平日、空字串=週六日）。本次改為 boolean，避免下游程式解析錯誤。",
+      "files": ["data.json", "README.md"],
+      "stats": { "added": 30, "removed": 30, "schemaChanged": true }
+    },
+    {
+      "sha": "2c19fd5",
+      "date": "2025-08-30",
+      "author": "opendata-bot",
+      "message": "初版：人事行政總處 115 年辦公日曆",
+      "files": ["data.json", "README.md"],
+      "stats": { "added": 30, "removed": 0 }
+    }
+  ]
+}

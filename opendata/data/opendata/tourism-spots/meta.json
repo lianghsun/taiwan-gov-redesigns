@@ -1,0 +1,63 @@
+{
+  "id": "tourism-spots",
+  "org": "opendata",
+  "kind": "structured",
+  "title": "全國觀光遊憩據點",
+  "summary": "交通部觀光署提供之全國重要觀光遊憩據點，含名稱、定位、開放時間、特色描述、無障礙資訊、官方圖片連結。",
+  "publisher": "交通部觀光署",
+  "license": "政府資料開放授權條款 1.0 版",
+  "tags": ["觀光", "旅遊", "地理"],
+  "upstreamUrl": "https://data.gov.tw/dataset/7777",
+  "files": [
+    { "path": "data.jsonl", "label": "data.jsonl", "format": "jsonl" },
+    { "path": "README.md", "label": "README.md", "format": "md" }
+  ],
+  "schema": [
+    { "name": "id", "type": "string" },
+    { "name": "name", "type": "string" },
+    { "name": "city", "type": "string" },
+    { "name": "category", "type": "string", "description": "自然 / 文化 / 古蹟 / 主題園區 / 步道 / 夜市" },
+    { "name": "lat", "type": "number" },
+    { "name": "lng", "type": "number" },
+    { "name": "openHours", "type": "string" },
+    { "name": "ticketTwd", "type": "integer", "description": "全票價（新台幣），免費為 0" },
+    { "name": "accessible", "type": "boolean" },
+    { "name": "summary", "type": "string", "description": "一句話介紹" }
+  ],
+  "examples": [
+    {
+      "title": "用 Python 找指定縣市免費的觀光景點",
+      "language": "python",
+      "path": "examples/free_spots_in_city.py",
+      "description": "輸入縣市名，輸出免門票景點清單。"
+    }
+  ],
+  "updatedAt": "2026-03-15",
+  "history": [
+    {
+      "sha": "4a2e1c0",
+      "date": "2026-03-15",
+      "author": "陳冠廷",
+      "message": "修正阿里山等 6 處景點開放時間",
+      "files": ["data.jsonl"],
+      "stats": { "added": 6, "removed": 6 }
+    },
+    {
+      "sha": "8b3d4e1",
+      "date": "2026-01-22",
+      "author": "opendata-bot",
+      "message": "加入 ticketTwd 數值欄位（取代原「免費 / 收費」字串）",
+      "body": "原欄位為自由文字，難以做價格範圍篩選。本次以 integer 表示全票價，免費景點為 0。",
+      "files": ["data.jsonl", "README.md"],
+      "stats": { "added": 25, "removed": 25, "schemaChanged": true }
+    },
+    {
+      "sha": "0fd28a3",
+      "date": "2025-11-04",
+      "author": "opendata-bot",
+      "message": "初版：交通部觀光署 25 處精選景點",
+      "files": ["data.jsonl", "README.md"],
+      "stats": { "added": 25, "removed": 0 }
+    }
+  ]
+}

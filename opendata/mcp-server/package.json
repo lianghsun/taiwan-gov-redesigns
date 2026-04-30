@@ -1,0 +1,26 @@
+{
+  "name": "if-opendata-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MCP server exposing if·opendata datasets as resources and tools.",
+  "type": "module",
+  "bin": {
+    "if-opendata-mcp": "dist/server.js"
+  },
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "tsx src/server.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "papaparse": "^5.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "@types/papaparse": "^5.3.15",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  }
+}

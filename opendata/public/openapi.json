@@ -1,0 +1,187 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "if·opendata API",
+    "version": "0.1.0",
+    "description": "想像中的台灣政府資料平台 API。所有 endpoint 不需 API key，CORS 開放。",
+    "contact": {
+      "name": "if-series demo"
+    }
+  },
+  "servers": [{ "url": "/" }],
+  "paths": {
+    "/api/datasets": {
+      "get": {
+        "summary": "列出所有資料集 metadata",
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/DatasetListResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/datasets/{id}": {
+      "get": {
+        "summary": "取得單一資料集完整 metadata",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/DatasetDetailResponse" }
+              }
+            }
+          },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/api/datasets/{id}/schema": {
+      "get": {
+        "summary": "取得 schema（欄位定義）",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/SchemaResponse" }
+              }
+            }
+          },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/api/datasets/{id}/data": {
+      "get": {
+        "summary": "取得資料列",
+        "description": "僅支援結構化資料集。預設回傳 JSON envelope。可用 format=csv|jsonl 改成下載。",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "limit", "in": "query", "schema": { "type": "integer", "default": 100, "maximum": 1000 } },
+          { "name": "offset", "in": "query", "schema": { "type": "integer", "default": 0 } },
+          { "name": "fields", "in": "query", "schema": { "type": "string" }, "description": "逗號分隔欄位名" },
+          { "name": "format", "in": "query", "schema": { "type": "string", "enum": ["json", "csv", "jsonl"] } }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/DataResponse" }
+              },
+              "text/csv": { "schema": { "type": "string" } },
+              "application/x-ndjson": { "schema": { "type": "string" } }
+            }
+          },
+          "400": {
+            "description": "資料集為非結構化，不支援結構化讀取",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } }
+          },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    }
+  },
+  "components": {
+    "responses": {
+      "NotFound": {
+        "description": "資料集不存在",
+        "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } }
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "required": ["error", "message"],
+        "properties": {
+          "error": { "type": "string" },
+          "message": { "type": "string" }
+        }
+      },
+      "DatasetSummary": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "kind": { "type": "string", "enum": ["structured", "unstructured"] },
+          "title": { "type": "string" },
+          "summary": { "type": "string" },
+          "publisher": { "type": "string" },
+          "license": { "type": "string" },
+          "tags": { "type": "array", "items": { "type": "string" } },
+          "fabricated": { "type": "boolean" },
+          "updatedAt": { "type": "string", "format": "date" },
+          "formats": { "type": "array", "items": { "type": "string" } },
+          "links": { "type": "object" }
+        }
+      },
+      "DatasetListResponse": {
+        "type": "object",
+        "properties": {
+          "data": { "type": "array", "items": { "$ref": "#/components/schemas/DatasetSummary" } },
+          "meta": { "type": "object" }
+        }
+      },
+      "DatasetDetailResponse": {
+        "type": "object",
+        "properties": {
+          "data": { "type": "object" }
+        }
+      },
+      "SchemaResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "kind": { "type": "string" },
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": { "type": "string" },
+                    "type": { "type": "string" },
+                    "description": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "DataResponse": {
+        "type": "object",
+        "properties": {
+          "data": { "type": "array", "items": { "type": "object" } },
+          "meta": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "total": { "type": "integer" },
+              "offset": { "type": "integer" },
+              "limit": { "type": "integer" },
+              "returned": { "type": "integer" },
+              "fields": { "type": ["array", "null"], "items": { "type": "string" } },
+              "sourceFile": { "type": "string" },
+              "sourceFormat": { "type": "string" }
+            }
+          },
+          "links": { "type": "object" }
+        }
+      }
+    }
+  }
+}

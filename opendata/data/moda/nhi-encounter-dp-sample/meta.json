@@ -1,0 +1,60 @@
+{
+  "id": "nhi-encounter-dp-sample",
+  "org": "moda",
+  "kind": "structured",
+  "title": "全民健保就醫紀錄差分隱私樣本",
+  "summary": "經差分隱私處理之全民健保門急診就醫紀錄樣本，包含科別、診斷大類、年齡層與費用區間，可用於健康政策研究示範。",
+  "publisher": "數位發展部主權資料中心（示意）",
+  "license": "主權資料授權條款 1.0（示意）",
+  "tags": ["健康", "主權資料", "差分隱私"],
+  "fabricated": true,
+  "files": [
+    { "path": "data.jsonl", "label": "data.jsonl", "format": "jsonl" },
+    { "path": "README.md", "label": "README.md", "format": "md" }
+  ],
+  "schema": [
+    { "name": "encounterId", "type": "string", "description": "去識別化就醫流水號" },
+    { "name": "yearMonth", "type": "string", "description": "就醫年月，YYYY-MM" },
+    { "name": "ageBucket", "type": "string", "description": "年齡層：0-5 / 6-12 / 13-17 / 18-39 / 40-64 / 65+" },
+    { "name": "gender", "type": "string", "description": "F / M / O" },
+    { "name": "department", "type": "string", "description": "就醫科別" },
+    { "name": "icd10Chapter", "type": "string", "description": "ICD-10 章節（A00-B99 等）" },
+    { "name": "feeBucket", "type": "string", "description": "費用區間：0-499 / 500-999 / 1000-2999 / 3000+" }
+  ],
+  "examples": [
+    {
+      "title": "用 Python 算各科別就醫人次分布",
+      "language": "python",
+      "path": "examples/by_department.py",
+      "description": "讀取 JSONL，依科別分組計算就醫人次與年齡層分布。"
+    }
+  ],
+  "updatedAt": "2026-04-10",
+  "history": [
+    {
+      "sha": "7d9f1c0",
+      "date": "2026-04-10",
+      "author": "moda-bot",
+      "message": "新增 2026 Q1 樣本（10 筆示意）",
+      "files": ["data.jsonl"],
+      "stats": { "added": 10, "removed": 0 }
+    },
+    {
+      "sha": "b3e5a82",
+      "date": "2026-02-08",
+      "author": "黃彥鈞（隱私工程師）",
+      "message": "Laplace 雜訊 ε 由 2.0 收斂至 1.0",
+      "body": "依 MoDA 隱私審議委員會建議，將整體查詢預算 ε 由 2.0 調至 1.0，並重新生成統計摘要。",
+      "files": ["data.jsonl", "README.md"],
+      "stats": { "added": 30, "removed": 30 }
+    },
+    {
+      "sha": "1c8d4e9",
+      "date": "2025-12-01",
+      "author": "moda-bot",
+      "message": "初版示意：30 筆 bucketed 資料",
+      "files": ["data.jsonl", "README.md"],
+      "stats": { "added": 30, "removed": 0 }
+    }
+  ]
+}

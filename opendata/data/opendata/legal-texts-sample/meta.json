@@ -1,0 +1,55 @@
+{
+  "id": "legal-texts-sample",
+  "org": "opendata",
+  "kind": "unstructured",
+  "title": "中央法規條文全文（精選）",
+  "summary": "全國法規資料庫法律條文之純文字版本，已正規化條號、移除頁碼錨點，可直接餵入 LLM 或全文檢索。",
+  "publisher": "法務部",
+  "license": "政府資料開放授權條款 1.0 版",
+  "tags": ["法規", "全文", "LLM"],
+  "upstreamUrl": "https://law.moj.gov.tw/",
+  "files": [
+    { "path": "01-information-disclosure-act.txt", "label": "政府資訊公開法", "format": "txt" },
+    { "path": "02-personal-data-protection-act.txt", "label": "個人資料保護法", "format": "txt" },
+    { "path": "03-archives-act.txt", "label": "檔案法", "format": "txt" },
+    { "path": "04-classified-info-protection-act.txt", "label": "國家機密保護法", "format": "txt" },
+    { "path": "05-digital-intermediary-services-draft.txt", "label": "數位中介服務法草案", "format": "txt" },
+    { "path": "README.md", "label": "README", "format": "md" }
+  ],
+  "examples": [
+    {
+      "title": "用 Python 把全部法規切成條文 chunk",
+      "language": "python",
+      "path": "examples/chunk_articles.py",
+      "description": "讀取目錄下所有 .txt，依「第 X 條」切段並輸出 JSONL，方便進向量資料庫。"
+    }
+  ],
+  "updatedAt": "2026-04-15",
+  "history": [
+    {
+      "sha": "d4f829a",
+      "date": "2026-04-15",
+      "author": "opendata-bot",
+      "message": "新增數位中介服務法草案（行政院版）",
+      "files": ["05-digital-intermediary-services-draft.txt"],
+      "stats": { "added": 1 }
+    },
+    {
+      "sha": "a91c0e3",
+      "date": "2026-02-20",
+      "author": "林雅婷",
+      "message": "移除原檔的頁碼錨點與重複條號",
+      "body": "原 PDF 轉純文字後夾雜「-1-」「-2-」與「第一條　第一條」這種重複條號，本次以正規表示式清掉。",
+      "files": ["01-information-disclosure-act.txt", "02-personal-data-protection-act.txt", "03-archives-act.txt", "04-classified-info-protection-act.txt"],
+      "stats": { "added": 4, "removed": 4 }
+    },
+    {
+      "sha": "5b71e02",
+      "date": "2025-11-30",
+      "author": "opendata-bot",
+      "message": "初版：4 部與資訊公開／隱私相關的法律全文",
+      "files": ["01-information-disclosure-act.txt", "02-personal-data-protection-act.txt", "03-archives-act.txt", "04-classified-info-protection-act.txt", "README.md"],
+      "stats": { "added": 5 }
+    }
+  ]
+}

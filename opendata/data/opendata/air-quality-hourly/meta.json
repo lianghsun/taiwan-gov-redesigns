@@ -1,0 +1,64 @@
+{
+  "id": "air-quality-hourly",
+  "org": "opendata",
+  "kind": "structured",
+  "title": "空氣品質監測小時值（精選測站）",
+  "summary": "環境部空氣品質監測網之測站每小時量測值，含 PM2.5、PM10、O3、NO2、SO2、CO 等項目與 AQI。",
+  "publisher": "行政院環境部",
+  "license": "政府資料開放授權條款 1.0 版",
+  "tags": ["環境", "空氣品質", "健康"],
+  "upstreamUrl": "https://data.gov.tw/dataset/40448",
+  "files": [
+    { "path": "data.csv", "label": "data.csv", "format": "csv" },
+    { "path": "README.md", "label": "README.md", "format": "md" }
+  ],
+  "schema": [
+    { "name": "siteId", "type": "string", "description": "測站代碼" },
+    { "name": "siteName", "type": "string", "description": "測站中文名稱" },
+    { "name": "county", "type": "string", "description": "縣市" },
+    { "name": "datetime", "type": "datetime", "description": "ISO 8601 含時區（+08:00）" },
+    { "name": "aqi", "type": "integer", "description": "空氣品質指標 (0–500)" },
+    { "name": "pm25", "type": "number", "description": "PM2.5 (µg/m³)" },
+    { "name": "pm10", "type": "number", "description": "PM10 (µg/m³)" },
+    { "name": "o3", "type": "number", "description": "臭氧 (ppb)" },
+    { "name": "no2", "type": "number", "description": "二氧化氮 (ppb)" },
+    { "name": "so2", "type": "number", "description": "二氧化硫 (ppb)" },
+    { "name": "co", "type": "number", "description": "一氧化碳 (ppm)" }
+  ],
+  "examples": [
+    {
+      "title": "用 R 繪製單日 PM2.5 走勢",
+      "language": "r",
+      "path": "examples/plot_pm25.R",
+      "description": "讀取 data.csv，挑指定測站，畫一日 24 小時 PM2.5 線圖。"
+    }
+  ],
+  "updatedAt": "2026-04-28",
+  "history": [
+    {
+      "sha": "6e2c8f4",
+      "date": "2026-04-28",
+      "author": "opendata-bot",
+      "message": "新增 2026/04/28 五個測站 24 小時資料",
+      "files": ["data.csv"],
+      "stats": { "added": 120, "removed": 0 }
+    },
+    {
+      "sha": "9d4b1e7",
+      "date": "2026-04-01",
+      "author": "王俊豪",
+      "message": "對齊 ISO 8601 時間格式並補上時區 +08:00",
+      "body": "原資料 datetime 為「2026/04/28 14」混合分隔符且不含時區，本次統一為 ISO 8601。",
+      "files": ["data.csv", "README.md"],
+      "stats": { "added": 24, "removed": 24, "schemaChanged": true }
+    },
+    {
+      "sha": "2a7c903",
+      "date": "2026-03-15",
+      "author": "opendata-bot",
+      "message": "初版：5 個測站精選 schema",
+      "files": ["data.csv", "README.md"],
+      "stats": { "added": 24, "removed": 0 }
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "id": "household-population-stats",
+  "org": "moda",
+  "kind": "structured",
+  "title": "戶役政人口結構統計（年/縣市/年齡層）",
+  "summary": "全國戶役政資料系統聚合統計：依年度、縣市與年齡層之人口數，已去個資並抑制 k<5 之格子。",
+  "publisher": "數位發展部主權資料中心（示意）",
+  "license": "主權資料授權條款 1.0（示意）",
+  "tags": ["人口", "主權資料", "統計"],
+  "fabricated": true,
+  "files": [
+    { "path": "data.json", "label": "data.json", "format": "json" },
+    { "path": "README.md", "label": "README.md", "format": "md" }
+  ],
+  "schema": [
+    { "name": "year", "type": "integer", "description": "西元年" },
+    { "name": "county", "type": "string", "description": "縣市" },
+    { "name": "ageBucket", "type": "string", "description": "年齡層：0-14 / 15-64 / 65+" },
+    { "name": "population", "type": "integer", "description": "人口數（k<5 格子已抑制為 null）" }
+  ],
+  "examples": [
+    {
+      "title": "用 TypeScript 算各縣市高齡人口比例",
+      "language": "typescript",
+      "path": "examples/aging_ratio.ts",
+      "description": "讀取 data.json，輸出各縣市 65+ 人口占比並排序。"
+    }
+  ],
+  "updatedAt": "2026-03-01",
+  "history": [
+    {
+      "sha": "f4d2c98",
+      "date": "2026-03-01",
+      "author": "moda-bot",
+      "message": "新增 2025 年度數據（含連江縣 k<5 抑制）",
+      "files": ["data.json"],
+      "stats": { "added": 30, "removed": 0 }
+    },
+    {
+      "sha": "3a8e1b5",
+      "date": "2025-08-10",
+      "author": "黃彥鈞（隱私工程師）",
+      "message": "k<5 格子改抑制為 null（原為四捨五入至 5）",
+      "body": "原作法雖避免極小值揭露，但仍可能透過鄰近格子推回，改為直接抑制更安全。",
+      "files": ["data.json", "README.md"],
+      "stats": { "added": 27, "removed": 27, "schemaChanged": false }
+    },
+    {
+      "sha": "7c9d2a3",
+      "date": "2025-04-22",
+      "author": "moda-bot",
+      "message": "初版示意：六都＋3 縣市 2024 年數據",
+      "files": ["data.json", "README.md"],
+      "stats": { "added": 27, "removed": 0 }
+    }
+  ]
+}

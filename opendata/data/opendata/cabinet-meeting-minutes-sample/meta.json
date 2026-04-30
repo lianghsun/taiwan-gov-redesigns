@@ -1,0 +1,45 @@
+{
+  "id": "cabinet-meeting-minutes-sample",
+  "org": "opendata",
+  "kind": "unstructured",
+  "title": "行政院會議紀錄摘要（精選）",
+  "summary": "行政院院會議事錄之文字摘要，含議程、決議與相關報告。本 demo 收錄 3 期會議。",
+  "publisher": "行政院",
+  "license": "政府資料開放授權條款 1.0 版",
+  "tags": ["會議紀錄", "公務", "敘述文本"],
+  "upstreamUrl": "https://www.ey.gov.tw/Page/4FA9418904D6C0EE",
+  "files": [
+    { "path": "2026-04-17-meeting-3792.md", "label": "2026-04-17 第 3792 次院會", "format": "md" },
+    { "path": "2026-04-10-meeting-3791.md", "label": "2026-04-10 第 3791 次院會", "format": "md" },
+    { "path": "2026-04-03-meeting-3790.md", "label": "2026-04-03 第 3790 次院會", "format": "md" },
+    { "path": "README.md", "label": "README", "format": "md" }
+  ],
+  "examples": [
+    {
+      "title": "用 Python 抓出每次院會的「決議」段落",
+      "language": "python",
+      "path": "examples/extract_decisions.py",
+      "description": "解析 markdown 結構，輸出每次會議所有「決議：」的純文字。"
+    }
+  ],
+  "updatedAt": "2026-04-18",
+  "history": [
+    {
+      "sha": "9f4c1a8",
+      "date": "2026-04-18",
+      "author": "opendata-bot",
+      "message": "新增第 3792 次院會（2026-04-17）",
+      "files": ["2026-04-17-meeting-3792.md"],
+      "stats": { "added": 1 }
+    },
+    {
+      "sha": "2e8b073",
+      "date": "2026-04-04",
+      "author": "opendata-bot",
+      "message": "初版：3 期院會紀錄轉 markdown",
+      "body": "原資料以 PDF 公告，本次以 OCR + 人工校對為 markdown，章節用 H2 標示，決議事項用列表呈現。",
+      "files": ["README.md", "2026-04-03-meeting-3790.md", "2026-04-10-meeting-3791.md"],
+      "stats": { "added": 3 }
+    }
+  ]
+}

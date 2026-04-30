@@ -1,0 +1,70 @@
+{
+  "id": "public-toilets",
+  "org": "opendata",
+  "kind": "structured",
+  "title": "全國公廁服務據點",
+  "summary": "全國各縣市政府清潔隊管理之公廁服務據點，含位址、座標、評等、是否提供無障礙設施等資訊。",
+  "publisher": "行政院環境部",
+  "license": "政府資料開放授權條款 1.0 版",
+  "tags": ["生活", "地理", "無障礙"],
+  "upstreamUrl": "https://data.gov.tw/dataset/6066",
+  "files": [
+    { "path": "data.csv", "label": "data.csv", "format": "csv" },
+    { "path": "README.md", "label": "README.md", "format": "md" }
+  ],
+  "schema": [
+    { "name": "id", "type": "string", "description": "公廁編號（管理單位+流水號）" },
+    { "name": "name", "type": "string", "description": "公廁名稱" },
+    { "name": "address", "type": "string", "description": "地址" },
+    { "name": "city", "type": "string", "description": "縣市" },
+    { "name": "lat", "type": "number", "description": "緯度 WGS84" },
+    { "name": "lng", "type": "number", "description": "經度 WGS84" },
+    { "name": "grade", "type": "string", "description": "評等：特優 / 優等 / 良好 / 普通 / 改善" },
+    { "name": "accessible", "type": "boolean", "description": "是否提供無障礙廁所" },
+    { "name": "diaperStation", "type": "boolean", "description": "是否提供尿布更換檯" }
+  ],
+  "examples": [
+    {
+      "title": "找出住家 1 公里內最高評等的公廁",
+      "language": "python",
+      "path": "examples/nearest_toilet.py",
+      "description": "輸入經緯度，回傳半徑 1km 內依評等排序的公廁。"
+    }
+  ],
+  "updatedAt": "2026-04-01",
+  "history": [
+    {
+      "sha": "b2d9047",
+      "date": "2026-04-01",
+      "author": "陳冠廷",
+      "message": "新增宜蘭縣 8 處據點，更新桃園評等",
+      "files": ["data.csv"],
+      "stats": { "added": 8, "removed": 0 }
+    },
+    {
+      "sha": "9a14f3b",
+      "date": "2026-02-12",
+      "author": "opendata-bot",
+      "message": "修正 4 筆地址全形/半形空白不一致",
+      "files": ["data.csv"],
+      "stats": { "added": 4, "removed": 4 }
+    },
+    {
+      "sha": "41c8e29",
+      "date": "2026-01-20",
+      "author": "王俊豪",
+      "message": "調整 lat/lng 一致使用 WGS84",
+      "body": "原資料部分縣市以 TWD97 二度分帶座標提供，本次轉換為 WGS84 並重新校驗。",
+      "files": ["data.csv", "README.md"],
+      "stats": { "added": 60, "removed": 60, "schemaChanged": true }
+    },
+    {
+      "sha": "5f7b1c8",
+      "date": "2025-12-05",
+      "author": "opendata-bot",
+      "message": "初版：彙整六都與兩個非六都精選據點",
+      "files": ["data.csv", "README.md"],
+      "stats": { "added": 60, "removed": 0 }
+    }
+  ]
+}

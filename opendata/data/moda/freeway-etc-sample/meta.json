@@ -1,0 +1,60 @@
+{
+  "id": "freeway-etc-sample",
+  "org": "moda",
+  "kind": "structured",
+  "title": "高速公路 ETC 通行記錄樣本",
+  "summary": "全國高速公路電子收費門架（ETC gantry）通行記錄樣本，已聚合至 5 分鐘區間並去個資化。",
+  "publisher": "數位發展部主權資料中心（示意）",
+  "license": "主權資料授權條款 1.0（示意）",
+  "tags": ["交通", "主權資料", "聚合資料"],
+  "fabricated": true,
+  "files": [
+    { "path": "data.csv", "label": "data.csv", "format": "csv" },
+    { "path": "README.md", "label": "README.md", "format": "md" }
+  ],
+  "schema": [
+    { "name": "gantryId", "type": "string", "description": "門架代碼（國道-方向-里程）" },
+    { "name": "freeway", "type": "string", "description": "國道編號" },
+    { "name": "direction", "type": "string", "description": "N=北上 / S=南下" },
+    { "name": "windowStart", "type": "datetime", "description": "5 分鐘區間起時 ISO 8601" },
+    { "name": "vehicleClass", "type": "string", "description": "S=小客車 / B=大客車 / T=大貨車 / M=機車" },
+    { "name": "count", "type": "integer", "description": "該 5 分鐘區間之通行車次" },
+    { "name": "avgSpeedKph", "type": "number", "description": "該區間平均車速（公里/小時）" }
+  ],
+  "examples": [
+    {
+      "title": "用 SQL 找尖峰時段最堵的門架",
+      "language": "sql",
+      "path": "examples/peak_jams.sql",
+      "description": "以 DuckDB 直接查詢 CSV，找尖峰平均車速最低的門架。"
+    }
+  ],
+  "updatedAt": "2026-04-20",
+  "history": [
+    {
+      "sha": "a2b8c41",
+      "date": "2026-04-20",
+      "author": "moda-bot",
+      "message": "新增國 5 南下尖峰示例與國 1 北上對照組",
+      "files": ["data.csv"],
+      "stats": { "added": 26, "removed": 0 }
+    },
+    {
+      "sha": "e7f3d05",
+      "date": "2026-03-12",
+      "author": "黃彥鈞（隱私工程師）",
+      "message": "聚合粒度由 15 分鐘改為 5 分鐘",
+      "body": "經主權資料委員會評估，5 分鐘窗口仍滿足 k≥10 的最小組數限制，可釋出更細時序。",
+      "files": ["data.csv", "README.md"],
+      "stats": { "added": 39, "removed": 13, "schemaChanged": false }
+    },
+    {
+      "sha": "9b1f4a7",
+      "date": "2026-01-15",
+      "author": "moda-bot",
+      "message": "初版示意：3 個門架 1 小時 5 分鐘聚合",
+      "files": ["data.csv", "README.md"],
+      "stats": { "added": 13, "removed": 0 }
+    }
+  ]
+}

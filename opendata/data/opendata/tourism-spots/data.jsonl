@@ -1,0 +1,25 @@
+{"id":"S001","name":"九份老街","city":"新北市","category":"文化","lat":25.1090,"lng":121.8444,"openHours":"全天","ticketTwd":0,"accessible":false,"summary":"山城老街，品茗、看海、賞夜景的經典代表。"}
+{"id":"S002","name":"野柳地質公園","city":"新北市","category":"自然","lat":25.2080,"lng":121.6896,"openHours":"08:00–17:00","ticketTwd":120,"accessible":true,"summary":"以女王頭為代表的海蝕奇岩地形。"}
+{"id":"S003","name":"陽明山國家公園","city":"臺北市","category":"自然","lat":25.1547,"lng":121.5601,"openHours":"全天","ticketTwd":0,"accessible":true,"summary":"火山地形、溫泉、花季與觀星據點。"}
+{"id":"S004","name":"國立故宮博物院","city":"臺北市","category":"文化","lat":25.1023,"lng":121.5483,"openHours":"09:00–17:00","ticketTwd":350,"accessible":true,"summary":"全球最重要的中華文物典藏機構之一。"}
+{"id":"S005","name":"淡水老街","city":"新北市","category":"文化","lat":25.1696,"lng":121.4408,"openHours":"全天","ticketTwd":0,"accessible":true,"summary":"河岸老街，融合洋式建築與在地小吃。"}
+{"id":"S006","name":"日月潭","city":"南投縣","category":"自然","lat":23.8569,"lng":120.9118,"openHours":"全天","ticketTwd":0,"accessible":true,"summary":"台灣最大天然湖，環湖自行車道列入 CNN 前十。"}
+{"id":"S007","name":"清境農場","city":"南投縣","category":"主題園區","lat":24.0581,"lng":121.1614,"openHours":"08:00–17:00","ticketTwd":160,"accessible":false,"summary":"高山草原、綿羊秀、雲海日出。"}
+{"id":"S008","name":"阿里山國家森林遊樂區","city":"嘉義縣","category":"自然","lat":23.5102,"lng":120.8056,"openHours":"全天","ticketTwd":300,"accessible":true,"summary":"日出、雲海、神木、櫻花的高山經典。"}
+{"id":"S009","name":"墾丁國家公園","city":"屏東縣","category":"自然","lat":22.0024,"lng":120.7460,"openHours":"全天","ticketTwd":0,"accessible":true,"summary":"台灣最南端，珊瑚礁、海岸、熱帶生態。"}
+{"id":"S010","name":"太魯閣國家公園","city":"花蓮縣","category":"自然","lat":24.1691,"lng":121.6201,"openHours":"全天","ticketTwd":0,"accessible":true,"summary":"大理岩峽谷地景，世界級景觀代表。"}
+{"id":"S011","name":"赤崁樓","city":"臺南市","category":"古蹟","lat":22.9970,"lng":120.2026,"openHours":"08:30–21:30","ticketTwd":50,"accessible":true,"summary":"荷治時期普羅民遮城遺構，國定古蹟。"}
+{"id":"S012","name":"安平古堡","city":"臺南市","category":"古蹟","lat":23.0014,"lng":120.1602,"openHours":"08:30–17:30","ticketTwd":50,"accessible":true,"summary":"台灣現存最古老的城堡建築。"}
+{"id":"S013","name":"鹿港老街","city":"彰化縣","category":"文化","lat":24.0567,"lng":120.4346,"openHours":"全天","ticketTwd":0,"accessible":false,"summary":"清代街屋與紅磚騎樓保存最完整老街之一。"}
+{"id":"S014","name":"逢甲夜市","city":"臺中市","category":"夜市","lat":24.1798,"lng":120.6464,"openHours":"16:00–01:00","ticketTwd":0,"accessible":false,"summary":"全台最大、最具代表性的觀光夜市。"}
+{"id":"S015","name":"駁二藝術特區","city":"高雄市","category":"文化","lat":22.6204,"lng":120.2807,"openHours":"10:00–18:00","ticketTwd":0,"accessible":true,"summary":"舊倉庫改造的港邊藝術文創園區。"}
+{"id":"S016","name":"三仙台","city":"臺東縣","category":"自然","lat":23.1247,"lng":121.4108,"openHours":"全天","ticketTwd":0,"accessible":true,"summary":"東海岸跨海八拱橋與三座岩島。"}
+{"id":"S017","name":"七星潭","city":"花蓮縣","category":"海岸","lat":24.0306,"lng":121.6240,"openHours":"全天","ticketTwd":0,"accessible":true,"summary":"礫石海灣，看花蓮山海與飛機起降。"}
+{"id":"S018","name":"草嶺古道","city":"宜蘭縣","category":"步道","lat":25.0090,"lng":121.9340,"openHours":"全天","ticketTwd":0,"accessible":false,"summary":"連接台北福隆與宜蘭大里的清代古道。"}
+{"id":"S019","name":"礁溪溫泉","city":"宜蘭縣","category":"溫泉","lat":24.8214,"lng":121.7704,"openHours":"全天","ticketTwd":0,"accessible":true,"summary":"碳酸氫鈉泉，俗稱美人湯。"}
+{"id":"S020","name":"小琉球","city":"屏東縣","category":"海岸","lat":22.3410,"lng":120.3702,"openHours":"全天","ticketTwd":0,"accessible":false,"summary":"全台唯一珊瑚礁島，海龜共游熱點。"}
+{"id":"S021","name":"鶯歌陶瓷博物館","city":"新北市","category":"文化","lat":24.9544,"lng":121.3429,"openHours":"09:30–17:00","ticketTwd":80,"accessible":true,"summary":"台灣第一座專業陶瓷博物館。"}
+{"id":"S022","name":"大溪老街","city":"桃園市","category":"文化","lat":24.8836,"lng":121.2891,"openHours":"全天","ticketTwd":0,"accessible":false,"summary":"巴洛克立面街屋與木藝產業聚落。"}
+{"id":"S023","name":"奇美博物館","city":"臺南市","category":"主題園區","lat":22.9351,"lng":120.2257,"openHours":"09:30–17:30","ticketTwd":200,"accessible":true,"summary":"私人捐贈的西方藝術、樂器、自然史博物館。"}
+{"id":"S024","name":"東眼山國家森林遊樂區","city":"桃園市","category":"自然","lat":24.8228,"lng":121.4037,"openHours":"08:00–17:00","ticketTwd":100,"accessible":false,"summary":"以柳杉人工林與化石景觀聞名的中海拔森林。"}
+{"id":"S025","name":"高美濕地","city":"臺中市","category":"自然","lat":24.3145,"lng":120.5454,"openHours":"全天（建議退潮前 2 小時）","ticketTwd":0,"accessible":true,"summary":"夕陽倒映在退潮泥灘上的網紅濕地。"}
