@@ -3,7 +3,6 @@
 import { useMemo, useState } from "react";
 import { MapContainer, TileLayer, Marker, Circle, Popup, useMapEvents } from "react-leaflet";
 import L from "leaflet";
-import "leaflet/dist/leaflet.css";
 import type { DemoProps } from "./registry";
 
 interface Toilet {
